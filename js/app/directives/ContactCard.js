@@ -16,10 +16,16 @@ function ContactCard() {
 				'<label>Phone:</label>',
 				'{{ phone }}',
 				'<label>Username:</label>',
-				'<span class="username">{{ username }}</span>',
+				'<span class="username">{{ ctrl.noCaps(username) }}</span>',
 			'</div>'
 		].join(''),
-		restrict: 'E'
+		restrict: 'E',
+		controller: function($scope){
+			this.noCaps = function(username){
+				return username.toLowerCase()
+			}
+		},
+		controllerAs: 'ctrl'
 	};
 }
 
